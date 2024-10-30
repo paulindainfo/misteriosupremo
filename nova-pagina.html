@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Página</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .final-text {
+    font-size: 2em; /* Aumenta o tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+    margin: 20px auto; /* Aumenta a margem superior e inferior para aproximar das outras seções */
+    padding: 0; /* Remove o espaçamento interno */
+    color: #add8e6; /* Cor do texto (pode ajustar para qualquer cor desejada) */
+    font-family: 'Dancing Script', cursive; /* Mantém a fonte igual ao restante */
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.6); /* Sombra do texto para destaque */
+}
+        body {
+            background-color: #121212; /* Cor de fundo escura */
+            color: #FFFFFF; /* Cor do texto */
+            font-family: 'Dancing Script', cursive; /* Fonte do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 50px; /* Espaçamento ao redor do texto */
+            
+        }
+        .center-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            color: #add8e6; /* Azul claro */
+            font-family: 'Dancing Script', cursive;
+            animation: color-change 5s infinite;
+        }
+        .center-text h1 {
+            font-size: 4em;
+            font-weight: bold;
+            margin: 0;
+            margin-bottom: 20px; /* Aumenta o espaçamento entre o título e o texto */
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.6); /* Sombra do texto */
+        }
+
+        .center-text p {
+            font-size: 1.5em;
+            color: #ffffff; /* Branco */
+            max-width: 600px;
+            margin-top: 10px;
+            animation: text-fun 3s infinite alternate;
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #ff69b4;
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: fall linear infinite;
+            pointer-events: none;
+        }
+
+        /* Animação dos confetes */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="center-text">
+    <h1>EU TE AMO MEU AMOOOR!!!!!!!</h1>
+    <p>Com tanto tempo juntinhos, nada mais justo do que mostrar nosso compromisso no dedo, o tempo todo!!! Tu é coisa mais especial da minha vida, e sempre vou repetir o quão doce tu sempre foi, e consegue melhorar todo o mundo com a tua leveza. Muito obrigado por estar presente
+        na minha vida. Meu docinho, minha perfeição, feita das faíscas mais polidas do amor e do carinho. Seremos Everlong!! 
+    </p>
+    </div>
+</body>
+<div class="final-text">
+    Como estrelas que se cruzaram no universo, nossos destinos agora brilham juntos para sempre.
+</div>
+
+<script>
+    function createConfetti() {
+        const colors = ["#ff69b4", "#ffb6c1", "#add8e6", "#ffa500", "#32cd32"];
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+
+            // Posição e cor aleatórias
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+            // Adiciona o confete à página
+            document.body.appendChild(confetti);
+
+            // Remove o confete ao terminar a animação
+            confetti.onanimationend = () => confetti.remove();
+        }
+    }
+
+    // Função para iniciar os confetes quando a página carrega
+    window.onload = createConfetti;
+</script>
+</html>

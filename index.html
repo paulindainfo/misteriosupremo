@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPER ULTRA MISTÉRIO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+
+        /* Estilos para o botão "Revelar Fotitos" */
+        #reveal-button {
+    display: block; /* Torna o botão um bloco */
+    margin: 0 auto; /* Centraliza o botão */
+    background-color: #87cefa; /* Azul claro */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    border-radius: 20px; /* Bordas arredondadas */
+    padding: 15px 30px; /* Espaçamento interno */
+    font-size: 1.5em; /* Tamanho da fonte */
+    font-family: 'Dancing Script', cursive; /* Fonte personalizada */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    transition: all 0.3s ease; /* Transição suave */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra do botão */
+    margin: 20px auto; /* Margem em cima e embaixo, mantendo a centralização */
+}
+
+/* Efeitos ao passar o mouse */
+#navigate-button {
+        display: block; /* Torna o botão um bloco */
+        margin: 20px auto; /* Centraliza o botão */
+        background-color: #87cefa; /* Azul claro */
+        color: #121212; /* Cor do texto no botão */
+        font-size: 1.5em; /* Tamanho da fonte do botão */
+        font-family: 'Dancing Script', cursive;
+        border: none; /* Remove borda padrão */
+        border-radius: 20px; /* Bordas arredondadas */
+        padding: 15px 30px; /* Espaçamento interno do botão */
+        cursor: pointer; /* Muda o cursor ao passar o mouse */
+        transition: background-color 0.3s, transform 0.3s; /* Transição suave */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra do botão */
+    }
+
+    /* Efeito ao passar o mouse */
+    #navigate-button:hover {
+        background-color: #ffb6c1; /* Cor ao passar o mouse */
+        transform: scale(1.05); /* Aumenta levemente o botão */
+    }
+
+/* Efeito ao passar o mouse */
+#navigate-button:hover {
+    background-color: #87cefa; /* Cor ao passar o mouse */
+}
+.final-text {
+    font-size: 2em; /* Aumenta o tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+    margin: 20px auto; /* Aumenta a margem superior e inferior para aproximar das outras seções */
+    padding: 0; /* Remove o espaçamento interno */
+    color: #add8e6; /* Cor do texto (pode ajustar para qualquer cor desejada) */
+    font-family: 'Dancing Script', cursive; /* Mantém a fonte igual ao restante */
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.6); /* Sombra do texto para destaque */
+}
+        body {
+            background-color: #121212; /* Cor de fundo escura */
+            color: #FFFFFF; /* Cor do texto */
+            font-family: 'Dancing Script', cursive; /* Fonte do texto */
+            text-align: center; /* Centraliza o texto */
+            padding: 50px; /* Espaçamento ao redor do texto */
+        }
+
+        /* Estilos gerais e modo escuro */
+        body {
+            background-color: #121212;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Texto centralizado */
+        .center-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            color: #add8e6; /* Azul claro */
+            font-family: 'Dancing Script', cursive;
+            animation: color-change 5s infinite;
+        }
+
+        .center-text h1 {
+            font-size: 4em;
+            font-weight: bold;
+            margin: 0;
+            margin-bottom: 20px; /* Aumenta o espaçamento entre o título e o texto */
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.6); /* Sombra do texto */
+        }
+
+        .center-text p {
+            font-size: 1.5em;
+            color: #ffffff; /* Branco */
+            max-width: 600px;
+            margin-top: 10px;
+            animation: text-fun 3s infinite alternate;
+        }
+
+        /* Animação de troca de cores para o título */
+        @keyframes color-change {
+            0% { color: #add8e6; }
+            25% { color: #ffffff; }
+            50% { color: #87cefa; }
+            75% { color: #add8e6; }
+            100% { color: #add8e6; }
+        }
+
+        /* Animação divertida para o texto */
+        @keyframes text-fun {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-2deg) scale(1.05); }
+            50% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+            100% { transform: rotate(0deg) scale(1.1); }
+        }
+
+        /* Conteúdo que aparece ao rolar */
+        .content-section {
+            opacity: 0;
+            transition: opacity 1s; /* Tempo de transição mais curto */
+            text-align: center;
+            padding: 50px;
+            margin: 150px auto; /* Aumenta a margem superior/inferior para espaçamento */
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+            border-radius: 12px; /* Bordas arredondadas */
+            color: #ffffff;
+            font-size: 2em;
+            font-family: 'Dancing Script', cursive;
+            min-height: 80vh; /* Altura mínima para ocupar mais espaço */
+        }
+
+        /* Ativação do efeito de fade-in */
+        .content-section.visible {
+            opacity: 1;
+        }
+
+        /* Estilo para a imagem e o texto personalizado */
+        .image-section {
+            border: 2px solid rgba(173, 216, 230, 0.6); /* Borda azul clara suave */
+            border-radius: 12px; /* Bordas arredondadas */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+            padding: 20px; /* Espaçamento interno */
+            background: rgba(30, 30, 30, 0.8); /* Fundo escuro e suave */
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px; /* Bordas arredondadas da imagem */
+        }
+
+         placeholder-img {
+            width: 150px; /* Tamanho fixo para as imagens */
+            height: 150px; /* Torna a imagem quadrada */
+            object-fit: cover; /* Garante que a imagem cubra o espaço sem distorção */
+            margin: 10px auto; /* Adiciona margem para centralizar e espaçar */
+        }
+
+        /* Estilos para o mosaico de fotos */
+        .mosaic-section {
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin: 100px auto; /* Margem acima e abaixo */
+            text-align: center;
+        }
+
+        .mosaic-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ffb6c1; /* Cor pastel rosada */
+            animation: title-color-change 5s infinite; /* Animação de troca de cor */
+        }
+
+        @keyframes title-color-change {
+            0% { color: #ff69b4; }
+            25% { color: #ffa500; }
+            50% { color: #32cd32; }
+            75% { color: #87ceeb; }
+            100% { color: #ff69b4; }
+        }
+
+        .mosaic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+            gap: 15px; /* Espaço entre as imagens */
+            max-width: 1200px; /* Largura máxima */
+            margin: 0 auto; /* Centraliza a grade */
+        }
+
+        .mosaic-image {
+            background-color: rgba(173, 216, 230, 0.6); /* Fundo azul claro */
+            border-radius: 8px; /* Bordas arredondadas */
+            overflow: hidden; /* Para arredondar as bordas da imagem */
+            position: relative; /* Para posicionar a descrição se necessário */
+            padding-top: 100%; /* Mantém a proporção */
+        }
+
+        .mosaic-image img {
+            position: absolute; /* Posiciona a imagem */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Ocupa a altura total */
+            object-fit: cover; /* Cobre o espaço disponível mantendo a proporção */
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .mosaic-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas pequenas */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mosaic-grid {
+                grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="center-text">
+        <h1>SUPER ULTRA MISTÉRIO</h1>
+        <p>Depois de milênios e milênios, duas estrelas se cruzaram e o destino do mundo ficou mais leve!!!</p>
+    </div>
+    
+    <!-- Conteúdo com imagem e texto personalizado -->
+    <div class="content-section image-section visible"> <!-- Primeiro placeholder visível inicialmente -->
+        <p>- Desde o comecinho, quando eu te via só pela telinha do celular no instagram. Eu via uma faísca...</p>
+        <img class="placeholder-img" src="Imagens/gatotelefono.jpg" alt="Descrição da imagem">
+    </div>
+    
+    <div class="content-section">
+        <p>E eu descobri! era ela quem tinha me mandado uma cartinha!!! ✨✨</p>
+        <img class="placeholder-img" src="Imagens/gatocadeiracerto.jpg" alt="Descrição da imagem 2">
+    </div>
+    <div class="content-section">
+        <p>Com muito nervosismo, com muito muito afeto, e muito amor, essa faisca cresceu... ESTAMOS NAMORANDO!!!!✨✨✨</p>
+        <img class="placeholder-img" src="Imagens/gatoamor.jpg" alt="Descrição da imagem 3">
+    </div>
+    <div class="content-section">
+        <p>E olha só, INFO + ADM deu nisso aqui >>>>>></p>
+        <img class="placeholder-img" src="Imagens/infoadm.png" alt="Descrição da imagem 4">
+    </div>
+
+    <div class="mosaic-section">
+        <h2 class="mosaic-title"> Antes de continuar, OLHA NOIZE!!</h2> <!-- Título do mosaico -->
+        <div class="mosaic-grid">
+            <div class="mosaic-image">
+                <img src="Imagens/IMG_20240929_215431_440.jpg" alt="Imagem 1">
+            </div>
+            <div class="mosaic-image">
+                <img src="Imagens/IMG_20240929_220343_247.jpg" alt="Imagem 2">
+            </div>
+            <div class="mosaic-image">
+                <img src="Imagens/IMG_20240929_220343_411.jpg" alt="Imagem 3">
+            </div>
+            <div class="mosaic-image">
+                <img src="Imagens/IMG-20240804-WA0037.jpg" alt="Imagem 4">
+            </div>
+            <div class="mosaic-image">
+                <img src="Imagens/IMG-20240916-WA0010.jpg" alt="Imagem 5">
+            </div>
+            <div class="mosaic-image">
+                <img src="Imagens/IMG-20240916-WA0012.jpg" alt="Imagem 6">
+            </div>
+            <div class="mosaic-image">
+                <img src="Imagens/IMG-20240928-WA0020.jpg" alt="Imagem 7">
+            </div>
+            <div class="mosaic-image">
+                <img src="Imagens/IMG-20240928-WA0021.jpg" alt="Imagem 8">
+            </div>
+            <div class="mosaic-image">
+                <img src="Imagens/IMG-20240928-WA0022.jpg" alt="Imagem 9">
+            </div>
+        </div>
+    </div>
+    <div class="content-section">
+        <p>Mas espera ai!!!</p>
+        <img class="placeholder-img" src="Imagens/gatopara.jpg" alt="Descrição da imagem 4">
+    </div>
+
+    <div class="content-section">
+        <p>Estamos aqui por um motivo............</p>
+        <img class="placeholder-img" src="Imagens/gatosuspeito.jpg" alt="Descrição da imagem 4">
+    </div>
+
+    <div class="content-section">
+        <p>OQUE SERA???</p>
+        <img class="placeholder-img" src="Imagens/gatopara.jpg" alt="Descrição da imagem 4">
+    </div>
+
+    <div style="height: 7000px; background-color: #1a1a1a;">
+        <div class="final-text">
+           SURPRESA REVELADA LA EMBAIXOO EINNN!!!
+        </div>
+    </div>
+    <button id="navigate-button" style="display: none;">Ir para a nova página</button>
+    
+    <script>
+        document.getElementById('navigate-button').addEventListener('click', function() {
+            window.location.href = 'nova-pagina.html'; // Altere para o nome do seu arquivo, se necessário
+        });
+    </script>
+    
+    <script>
+        // Função para mostrar o botão quando o usuário rolar para baixo
+        function showButtonOnScroll() {
+            const button = document.getElementById('navigate-button');
+            const scrollY = window.scrollY || window.pageYOffset; // Posição da rolagem vertical
+            const windowHeight = window.innerHeight; // Altura da janela
+    
+            // Exibir o botão se o usuário rolar para baixo mais de 300 pixels
+            if (scrollY > 6000) {
+                button.style.display = 'block'; // Mostra o botão
+            } else {
+                button.style.display = 'none'; // Esconde o botão
+            }
+        }
+    
+        // Adiciona o evento de rolagem
+        window.addEventListener('scroll', showButtonOnScroll);
+    </script>
+
+    <script>
+        
+        // Função para mostrar elementos ao rolar a página
+        function revealOnScroll() {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight * 0.85) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        // Verifica se o usuário rolou a página
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Executa na carga inicial
+
+        // Função para revelar o mosaico quando o botão for clicado
+        document.getElementById('reveal-button').addEventListener('click', () => {
+            document.querySelector('.mosaic-section').style.display = 'block';
+        });
+    </script>
+    <script>
+        function startCountdown() {
+    let countdownElement = document.getElementById('countdown');
+    let timerElement = document.getElementById('timer');
+    let timeLeft = 10;
+
+    countdownElement.style.display = 'block';
+    timerElement.textContent = timeLeft;
+
+    const countdownInterval = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(countdownInterval);
+            // Aqui você pode chamar a função para navegar ou revelar algo
+        }
+    }, 1000);
+}
+
+document.getElementById('navigate-button').onclick = function() {
+    startCountdown(); // Inicia a contagem regressiva
+    startConfetti();  // Inicia os confetes
+};
+
+    </script>
+</body>
+</html>
